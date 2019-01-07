@@ -44,7 +44,7 @@ class App extends Component {
         <p>{tareas.cargo} </p>
         <p>{tareas.ingreso} </p>
         
-        <p> <img src={tareas.image} alt="..." className="img-thumbnail"></img>
+        <p> <img src={this.state.image}/>
         
 </p>
 

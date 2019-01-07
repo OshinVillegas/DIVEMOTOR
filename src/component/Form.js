@@ -10,7 +10,7 @@ class Form extends Component {
       correo: " ",
       cargo: " ",
       ingreso: " ",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8x5R676Nop9d6D6R5WvdGaxCwOb12pOBiVHvMSzSHrINzrQ4rfw"
+      image: null
 
     };
     this.handleInput = this.handleInput.bind(this);
@@ -33,7 +33,9 @@ class Form extends Component {
     this.props.onAddForm(this.state);
     console.log('enviando data');
    }
- 
+   handleChangeImage = (e) => {
+    this.setState({image: URL.createObjectURL(e.target.files[0])});
+  }
 
   render() {
     return (
@@ -101,8 +103,7 @@ class Form extends Component {
             <div className="form-group  ">
             <input 
             type="file" 
-            name="image"
-            onChange={this.handleInput}>
+            onChange={e => this.handleChangeImage(e)} type="file">
             </input>
             </div>
            

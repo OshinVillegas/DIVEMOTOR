@@ -44,11 +44,12 @@ class App extends Component {
         <p>{tareas.cargo} </p>
         <p>{tareas.ingreso} </p>
         
-        <p> <img src={this.state.image}/>
+        <p> <img src={tareas.image} className="img-thumbnail  width: 100% "/>
         
 </p>
 
         </div>
+        
       </div>
       </div>
       )

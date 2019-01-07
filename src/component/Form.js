@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 import React, { Component } from 'react';
 
+
 class Form extends Component {
   constructor() {
     super();
@@ -15,6 +16,7 @@ class Form extends Component {
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this); 
+    this.handleChangeImage=this.handleChangeImage.bind(this);
 }
 
     //funcion de modificacion
@@ -103,7 +105,7 @@ class Form extends Component {
             <div className="form-group  ">
             <input 
             type="file" 
-            onChange={e => this.handleChangeImage(e)} type="file">
+            onChange={e => this.handleChangeImage(e)}>
             </input>
             </div>
            

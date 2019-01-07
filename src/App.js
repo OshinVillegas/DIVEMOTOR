@@ -7,7 +7,7 @@ import { todos } from "./todos.json";
 import Form from "./component/Form";
 import domtoimage from 'dom-to-image';
 import ReactDOM from 'react-dom';
-// import FileSaver from 'file-saver';
+import FileSaver from 'file-saver';
 
 //class para nombrar un componente y className para css
 class App extends Component {
@@ -22,6 +22,7 @@ class App extends Component {
 
     };
     this.handleAddform = this.handleAddform.bind(this);
+    this.download= this.download.bind(this);
   }
 
     handleAddform(todo) {
@@ -43,10 +44,10 @@ class App extends Component {
    const todo = this.state.todos.map((tareas, i) => {
       return (
       
-      <div ref= "formulario" className="col-md-6">
-        <div className="card mt-6" >
+      <div ref= {'formulario'} className="col-md-8">
+        <div className="card" >
       <div className="card-header">
-      <img src= "https://www.canaldedenunciasdivemotor.com/resources/logo.png" height="80" width="200"/>
+       <h1> DIVEMOTOR </h1>
         </div>
         <div className="card-body">
         <p>{tareas.nombre} </p>
@@ -55,7 +56,7 @@ class App extends Component {
         <p>{tareas.cargo} </p>
         <p>{tareas.ingreso} </p>
         
-        <p> <img src={tareas.image} className="img-thumbnail  width: 100% "/>
+        <p> <img src={tareas.image} alt=" " className="img-thumbnail  width: 100% "/>
         
 </p>
          <button onClick={this.download}> DESCARGAR </button>

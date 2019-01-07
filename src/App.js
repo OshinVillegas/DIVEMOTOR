@@ -1,9 +1,14 @@
+/* eslint-disable no-undef */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from "react";
 import "./App.css";
 import { todos } from "./todos.json";
-import Form from "./component/Form"
+import Form from "./component/Form";
+import domtoimage from 'dom-to-image';
+import ReactDOM from 'react-dom';
+// import FileSaver from 'file-saver';
+
 //class para nombrar un componente y className para css
 class App extends Component {
   //constructor almacena datos, ni bien inicializamos un constructor
@@ -26,13 +31,19 @@ class App extends Component {
       console.log(todo)
       
     }
-    
+    download(){
+      let formulario = ReactDOM.findDOMNode(this.refs['formulario']);
+      domtoimage.toBlob(formulario)
+    .then(function (blob) {
+      FileSaver.saveAs(blob, 'picture.png');
+    });
+    } 
   render() {
 
    const todo = this.state.todos.map((tareas, i) => {
       return (
       
-      <div className="col-md-6">
+      <div ref= "formulario" className="col-md-6">
         <div className="card mt-6" >
       <div className="card-header">
       <img src= "https://www.canaldedenunciasdivemotor.com/resources/logo.png" height="80" width="200"/>
@@ -47,7 +58,7 @@ class App extends Component {
         <p> <img src={tareas.image} className="img-thumbnail  width: 100% "/>
         
 </p>
-
+         <button onClick={this.download}> DESCARGAR </button>
         </div>
         
       </div>

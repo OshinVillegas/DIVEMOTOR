@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/DIVEMOTOR/precache-manifest.0d54eedef9f05a4cd792c30fda6e09b8.js"
+  "/DIVEMOTOR/precache-manifest.59f946584257c0b9c619296bb6ebec46.js"
 );
 
 workbox.clientsClaim();
